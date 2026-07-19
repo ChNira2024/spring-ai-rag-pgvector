@@ -1,0 +1,136 @@
+Module 1: RAG Fundamentals
+----------------------------
+What is RAG (Retrieval-Augmented Generation)?
+Why was RAG introduced?
+What problem does RAG solve?
+How is RAG different from directly calling an LLM?
+What are the components of a RAG application?
+Explain the complete RAG architecture.
+Explain the RAG pipeline step by step.
+What happens when a user asks a question in a RAG application?
+Can RAG work without an LLM?
+Can an LLM work without RAG?
+
+Module 2: PDF Reader
+------------------------
+What is DocumentReader?
+Why do we use PagePdfDocumentReader?
+What happens internally when reader.get() is called?
+What is a Document in Spring AI?
+Why does reader.get() return List<Document>?
+Why is each page represented as a Document?
+Can one PDF create multiple Document objects?
+What metadata is stored inside a Document?
+
+Module 3: Chunking
+------------------------
+What is chunking?
+Why is chunking required?
+What happens if we don't chunk documents?
+What is TokenTextSplitter?
+How does TokenTextSplitter work internally?
+What is chunk size?
+What is chunk overlap?
+Why do we need overlap?
+Can one page become multiple chunks?
+Why does Spring AI split by tokens instead of characters?
+How do you decide the ideal chunk size?
+What are the disadvantages of very small chunks?
+What are the disadvantages of very large chunks?
+
+Module 4: Embeddings
+------------------------
+What is an embedding?
+What is vectorization?
+How does text become numbers?
+Why can't the LLM directly understand text?
+What is the role of the embedding model?
+Why do we use nomic-embed-text?
+Why do we use a different model for chat and embeddings?
+Can we use Llama for embeddings?
+Why are embeddings numerical vectors?
+What is semantic similarity?
+Why do similar sentences have similar vectors?
+
+Module 5: Vector Database
+------------------------
+What is a vector database?
+Why not use MySQL or Oracle?
+Why use pgvector?
+What is VectorStore in Spring AI?
+What happens inside vectorStore.add()?
+What data is stored in vector_store?
+Is the entire PDF stored as one row?
+Why is one chunk stored per row?
+What metadata is stored with each chunk?
+What are the advantages of storing metadata?
+
+Module 6: Upload Pipeline
+------------------------
+Why use MultipartFile instead of ClassPathResource?
+What is FileSystemResource?
+Why create a temporary file?
+How does Spring Boot upload a PDF?
+What validations should be performed before indexing?
+How do you prevent duplicate uploads?
+Why maintain an uploaded_documents table?
+
+Module 7: Similarity Search
+------------------------
+What is similarity search?
+How is similarity search different from SQL keyword search?
+How does pgvector find similar chunks?
+Why is the question converted into an embedding?
+What is SearchRequest?
+What is topK?
+Why retrieve only the top K chunks?
+What happens inside similaritySearch()?
+What if there are no matching chunks?
+
+Module 8: QuestionAnswerAdvisor
+------------------------
+What is QuestionAnswerAdvisor?
+What problem does it solve?
+What happens internally inside QuestionAnswerAdvisor?
+How is it different from manual RAG?
+When should you use manual retrieval?
+When should you use QuestionAnswerAdvisor?
+Can we customize retrieval while using the advisor?
+
+Module 9: PostgreSQL & pgvector
+------------------------
+Why install the pgvector extension?
+What does initialize-schema=true do?
+What tables are created?
+What is stored in the embedding column?
+Why is the embedding column so large?
+How do you verify vectors are stored?
+
+Module 10: Project Design
+------------------------
+Why use DTOs?
+Why not return List<Document> directly?
+Why create UploadResponse?
+Why keep business logic in the service layer?
+Why use JPA Repository?
+Why separate document metadata from the vector store?
+
+Module 11: Real-Time Scenarios
+------------------------
+User uploads the same PDF twice. What should happen?
+How do you delete an indexed PDF?
+How do you re-index a PDF?
+How do you support multiple PDFs?
+How do you search within one specific PDF?
+How do you manage document versions?
+How do you handle large PDFs?
+How do you index PDFs asynchronously?
+
+Module 12: Interview Coding Questions
+------------------------
+Explain the complete RAG flow with a diagram.
+Draw the architecture of your Spring AI RAG application.
+Explain the request flow from upload to answer generation.
+Explain the retrieval flow internally.
+Explain the generation flow internally.
+
